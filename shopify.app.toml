@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "85bf9791c473861238be69697f7f4ae6"
+name = "ship"
+handle = "ship-22"
+application_url = "https://e689-113-11-180-14.ngrok-free.app"
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "teasd2.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "customer_read_customers,read_assigned_fulfillment_orders,read_customers,read_locations,read_orders,read_products,read_shipping,write_assigned_fulfillment_orders,write_locations,write_orders,write_products,write_shipping"
+
+[auth]
+redirect_urls = [
+  "https://e689-113-11-180-14.ngrok-free.app/auth/callback",
+  "https://e689-113-11-180-14.ngrok-free.app/auth/shopify/callback",
+  "https://e689-113-11-180-14.ngrok-free.app/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
